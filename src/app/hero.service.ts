@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
-
 import { MessageService } from './message.service';
 
 /**
@@ -27,5 +26,17 @@ export class HeroService {
     const heroes = of(HEROES);
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
+  }
+
+  /**
+   * Assigns a const value for a singular selected from mock-data of HEROES.
+   * Adds a message to the messageService statings a single hero has been fetched.
+   * @param id 
+   * @returns hero
+   */
+  getHero(id: number): Observable<Hero> {
+    const hero = HEROES.find(h => h.id === id)!;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero);
   }
 }

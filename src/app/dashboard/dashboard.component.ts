@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
 /**
  * @Component is a decorator in Angular to define the selector, HTML template file and CSS template file.
  */
- @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: [ './dashboard.component.css' ]
 })
 
-export class HeroesComponent implements OnInit {
+export class DashboardComponent implements OnInit {
+
+  title: string = 'Top Heroes' // title property with string data type (only applies to dashboard.component.html).
 
   heroes: Hero[] = []; // heroes property of an interface array (Hero[]) type, intially declared as empty (= []).
 
@@ -28,8 +29,8 @@ export class HeroesComponent implements OnInit {
   /**
    * Obtains the mock hero data from the heroService.getHeroes() function.
    */
-   getHeroes(): void {
+  getHeroes(): void {
     this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
   }
 }
