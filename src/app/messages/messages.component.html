@@ -1,0 +1,8 @@
+<div *ngIf="messageService.messages.length"> <!-- ngIf = Displays the messages area ONLY IF there are messages to display (conditional rendering) -->
+
+    <h2>Messages</h2>
+    <button type="button" class="clear"
+            (click)="messageService.clear()">Clear messages</button> <!-- Angular event binding to tie 'click' event with messageService.clear() -->
+    <div *ngFor='let message of messageService.messages'> {{message}} </div> <!-- ngFor = Presents the list of messages from messageService.messages -->
+  
+  </div>

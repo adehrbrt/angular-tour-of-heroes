@@ -1,5 +1,9 @@
 import { Hero } from './hero';
 
+/**
+ * Mock data set of HEROES using the Hero interface as 
+ * correct guidance for data set entry and structure.
+ */
 export const HEROES: Hero[] = [
   { id: 1, name: 'Windstorm' },
   { id: 2, name: 'Dr Nice' },
